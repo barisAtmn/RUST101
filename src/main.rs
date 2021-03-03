@@ -1,3 +1,8 @@
+#[warn(unused_imports)]
+use hello::*;
+
+const  X : i32= 3;
+
 fn main() {
 
     let name = "baris";
@@ -8,7 +13,7 @@ fn main() {
     city = "Tallin";
 
     println!("Hello, world!, {}. Age is :  {} , Living in : {}", name, age, city);
-    const  X : i32= 3;
+
     {
         let  y : i32= 13;
         let name = "Baris";
@@ -22,5 +27,14 @@ fn main() {
 
     println!("{}", _type_shadow);
 
+    println!("{}", do_stuff(3, 2));
 
+    hello::hi();
+
+
+    println!("{}", hello::create_random());
+}
+
+fn do_stuff(first_element: i32 , second_element: i32) -> i32 {
+    first_element * second_element
 }
