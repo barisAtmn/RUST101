@@ -1,0 +1,9 @@
+[package]
+name = "hello-rust-101"
+version = "0.1.0"
+authors = ["Baris Ataman <br.atmn.91@gmail.com.tr>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
