@@ -1,6 +1,8 @@
 pub mod types;
 pub mod ownership;
 pub mod references_borrowing;
+pub mod struct_test;
+pub mod traits;
 
 use rand::{thread_rng, Rng};
 

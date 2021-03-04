@@ -3,6 +3,7 @@ use hello::{hi,create_random};
 use hello::types::{types, condition, loop_test, os_env_ar};
 use hello::ownership::{test_owner};
 use hello::references_borrowing::{ref_pass, p_ref_pass};
+use hello::struct_test::struct_test1;
 
 const  X : i32= 3;
 
@@ -54,6 +55,7 @@ fn main() {
     hello::references_borrowing::p_ref_pass(&mut s2);
     println!("second value :{}",s2);
 
+    hello::struct_test::struct_test1();
 }
 
 fn do_stuff(first_element: i32 , second_element: i32) -> i32 {
