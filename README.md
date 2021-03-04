@@ -15,7 +15,7 @@ savings of time or money.
 
 ```
 
-==> cargo new {project_name} *> cargo run
+==> cargo new {project_name} *> cargo run *> cargo doc
 
 ==> const --> you can use it outside of function. It is global immutable variable. (Inline)
 
@@ -51,5 +51,16 @@ use std::collections::HashMap;
 
 ==> Cargo.toml ==> dependencies go there!
 
+==> Scalars are typically contrasted with compounds, such as arrays, maps, sets, structs, etc. A scalar is a 
+"single" value - integer, boolean, perhaps a string - while a compound is made up of multiple scalars (and possibly references to other compounds).
+- Rust has four primary scalar types: integers, floating-point numbers, Booleans, and characters.
 
+==> usize - it like pointer
 
+==> Ownership makes Rust different from others.
+3 Rules;
+- Each value has an owner. 
+- There is only one owner
+- Value gets dropped if its owner goes out of scope
+
+==> Heap is slower than Stack as it needs to refresh memory cache.

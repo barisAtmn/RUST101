@@ -1,3 +1,7 @@
+pub mod types;
+pub mod ownership;
+pub mod references_borrowing;
+
 use rand::{thread_rng, Rng};
 
 pub fn hi() {
