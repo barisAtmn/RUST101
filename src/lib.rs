@@ -3,6 +3,9 @@ pub mod ownership;
 pub mod references_borrowing;
 pub mod struct_test;
 pub mod traits;
+pub mod collections_test;
+pub mod enums_test;
+pub mod derive_test;
 
 use rand::{thread_rng, Rng};
 

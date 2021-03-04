@@ -4,17 +4,19 @@ use hello::types::{types, condition, loop_test, os_env_ar};
 use hello::ownership::{test_owner};
 use hello::references_borrowing::{ref_pass, p_ref_pass};
 use hello::struct_test::struct_test1;
-
+use hello::collections_test::{vector_test, hash_map_test};
+use hello::enums_test::{test_enum, open_file};
+use hello::derive_test::derive_debug_test;
 const  X : i32= 3;
 
 fn main() {
 
     let name = "baris";
     let age = 29;
-    let mut city = "tallin";
+    let mut city = "tallinn";
     println!("Hello, world!, {}. Age is :  {} , Living in : {}", name, age, city);
 
-    city = "Tallin";
+    city = "Tallinn";
 
     println!("Hello, world!, {}. Age is :  {} , Living in : {}", name, age, city);
 
@@ -56,6 +58,15 @@ fn main() {
     println!("second value :{}",s2);
 
     hello::struct_test::struct_test1();
+
+    vector_test();
+    hash_map_test();
+
+    test_enum();
+
+    derive_debug_test();
+
+    open_file();
 }
 
 fn do_stuff(first_element: i32 , second_element: i32) -> i32 {

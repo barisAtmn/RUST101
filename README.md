@@ -128,6 +128,8 @@ println!("{}", mem::size_of::<String>()); // 24
 
 - Traits ==> Interface
 
+- Traits can have method implementations. No fields.
+
 - You can implement traits for types as well.
 ```
 trait Noisy {
@@ -153,4 +155,18 @@ fn test() {
 }
 ```
 
---> 
+--> Enums -- Algebraic Data Types
+```
+ enum Color {
+    Red,
+    Blue,
+ }
+```
+
+--> #[derive(Debug)] // Derive the `fmt::Debug` implementation for structs.
+
+```
+All types which want to use std::fmt formatting traits require an implementation to be printable. 
+Automatic implementations are only provided for types such as in the std library. 
+All others must be manually implemented somehow.
+```
