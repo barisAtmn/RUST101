@@ -4,7 +4,7 @@ use std::convert::TryInto;
 use std::fmt::{Pointer, Debug};
 use std::fs::File;
 use std::io::Error;
-
+use log::debug;
 
 #[derive(Debug)]
 enum Color {
@@ -38,4 +38,16 @@ pub fn open_file() {
             _ => {}
         }
     }
+}
+
+pub fn receives_closure<F>(closure: F)
+    where
+        F: Fn(i32) -> i32,
+{
+    let result = closure(1);
+    debug!("closure(1) => {}", result);
+}
+
+pub fn returns_closure() -> impl Fn(i32) -> i32 {
+    |x| x + 4
 }

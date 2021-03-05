@@ -5,9 +5,9 @@ use hello::ownership::{test_owner};
 use hello::references_borrowing::{ref_pass, p_ref_pass};
 use hello::struct_test::struct_test1;
 use hello::collections_test::{vector_test, hash_map_test};
-use hello::enums_test::{test_enum, open_file};
+use hello::enums_test::{test_enum, open_file, receives_closure, returns_closure};
 use hello::derive_test::derive_debug_test;
-use hello::closures::{closure_test, functional_programming_closure, functional_programming_closure2};
+use hello::closures::*;
 
 
 const  X : i32= 3;
@@ -76,6 +76,11 @@ fn main() {
     println!("{}", functional_programming_closure());
 
     println!("{}", functional_programming_closure2());
+
+    let closure = |_| {3};
+    receives_closure(closure);
+
+    returns_closure();
 }
 
 fn do_stuff(first_element: i32 , second_element: i32) -> i32 {
