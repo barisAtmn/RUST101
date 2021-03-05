@@ -14,6 +14,17 @@ because the software itself is performance critical or because even small effici
 savings of time or money.
 
 ```
+- 
+```
+- No inheritance for data types (there is a bottom type but it’s used much more sparingly)
+- No universal equality
+- No nulls
+- Traits are basically Haskell typeclasses
+- Many more primary types (instead of just Int, there are i8, i16, i32, i64, isize, as well as u8, u16 … )
+- The Rust macro system, while less powerful than Scala’s, is quite useful for keeping your code DRY and 
+importantly, integrates really well with the rest of the language. It is in fact enabled and available out of the box without any additional dependencies/flags.
+- 
+```
 
 - cargo new {project_name} *> cargo run *> cargo doc
 
@@ -112,6 +123,9 @@ use std::collections::HashMap;
 
 }
 
+- &'a str string with a lifetime
+  &' static str string with static lifetime (baked into your binary)
+
 - fat pointers (pointer + associated metadata)
 ```
 The fat pointer is 3 * 8 bytes (wordsize) long consists of the following 3 elements:
@@ -170,3 +184,18 @@ All types which want to use std::fmt formatting traits require an implementation
 Automatic implementations are only provided for types such as in the std library. 
 All others must be manually implemented somehow.
 ```
+
+--> closure --> |x + y| {x + y}
+
+--> move |x + y| {v}
+closure can get local variable ownership with move !!!
+
+--> threads --> thread::spawn(move || {
+   // work here
+}).join().unwrap();
+
+--> Be careful with threads as context switching is hard task.
+
+--> More thread, more overhead for cpu context switching.
+
+- https://beachape.com/blog/2017/05/24/rust-from-scala/

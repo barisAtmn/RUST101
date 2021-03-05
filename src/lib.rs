@@ -6,6 +6,8 @@ pub mod traits;
 pub mod collections_test;
 pub mod enums_test;
 pub mod derive_test;
+pub mod closures;
+pub mod threads;
 
 use rand::{thread_rng, Rng};
 

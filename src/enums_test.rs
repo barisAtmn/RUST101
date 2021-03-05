@@ -37,6 +37,5 @@ pub fn open_file() {
             Err(e) => println!("ops!, {}", e),
             _ => {}
         }
-
     }
 }

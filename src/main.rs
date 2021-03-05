@@ -7,6 +7,9 @@ use hello::struct_test::struct_test1;
 use hello::collections_test::{vector_test, hash_map_test};
 use hello::enums_test::{test_enum, open_file};
 use hello::derive_test::derive_debug_test;
+use hello::closures::{closure_test, functional_programming_closure, functional_programming_closure2};
+
+
 const  X : i32= 3;
 
 fn main() {
@@ -67,6 +70,12 @@ fn main() {
     derive_debug_test();
 
     open_file();
+
+    closure_test();
+
+    println!("{}", functional_programming_closure());
+
+    println!("{}", functional_programming_closure2());
 }
 
 fn do_stuff(first_element: i32 , second_element: i32) -> i32 {
