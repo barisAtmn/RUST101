@@ -8,6 +8,10 @@ pub mod enums_test;
 pub mod derive_test;
 pub mod closures;
 pub mod threads;
+pub mod result_error_handling;
+pub mod lifetime;
+pub mod pointers;
+pub mod macros;
 
 use rand::{thread_rng, Rng};
 

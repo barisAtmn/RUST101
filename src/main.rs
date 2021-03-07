@@ -1,14 +1,14 @@
 #[warn(unused_imports)]
 use hello::{hi,create_random};
 use hello::types::{types, condition, loop_test, os_env_ar};
-use hello::ownership::{test_owner};
+use hello::ownership::{test_owner, test_owner2};
 use hello::references_borrowing::{ref_pass, p_ref_pass};
 use hello::struct_test::struct_test1;
 use hello::collections_test::{vector_test, hash_map_test};
 use hello::enums_test::{test_enum, open_file, receives_closure, returns_closure};
 use hello::derive_test::derive_debug_test;
 use hello::closures::*;
-
+use hello::result_error_handling::*;
 
 const  X : i32= 3;
 
@@ -77,10 +77,11 @@ fn main() {
 
     println!("{}", functional_programming_closure2());
 
-    let closure = |_| {3};
-    receives_closure(closure);
+    receives_closure(returns_closure());
 
-    returns_closure();
+    println!("{:?}", test_error());
+
+    test_owner2();
 }
 
 fn do_stuff(first_element: i32 , second_element: i32) -> i32 {

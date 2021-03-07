@@ -96,6 +96,8 @@ use std::collections::HashMap;
 
 - Class == Struct 
 
+- String = Vec<u8> , str = &[u8]
+  
 - String and str
 {
   - String is the dynamic heap string type, like Vec: use it when you need to own or modify your string data.
@@ -169,7 +171,7 @@ fn test() {
 }
 ```
 
---> Enums -- Algebraic Data Types
+- Enums -- Algebraic Data Types
 ```
  enum Color {
     Red,
@@ -177,7 +179,7 @@ fn test() {
  }
 ```
 
---> #[derive(Debug)] // Derive the `fmt::Debug` implementation for structs.
+- #[derive(Debug)] // Derive the `fmt::Debug` implementation for structs.
 
 ```
 All types which want to use std::fmt formatting traits require an implementation to be printable. 
@@ -185,17 +187,36 @@ Automatic implementations are only provided for types such as in the std library
 All others must be manually implemented somehow.
 ```
 
---> closure --> |x + y| {x + y}
+- closure --> |x + y| {x + y}
 
---> move |x + y| {v}
+- move |x + y| {v}
 closure can get local variable ownership with move !!!
 
---> threads --> thread::spawn(move || {
+- threads --> thread::spawn(move || {
    // work here
 }).join().unwrap();
 
---> Be careful with threads as context switching is hard task.
+- Be careful with threads as context switching is hard task.
 
---> More thread, more overhead for cpu context switching.
+- More thread, more overhead for cpu context switching.
+
+- Error handling : Result<T, E>
+{
+enum Result<T, E> {
+    Ok(T),
+    Err(E),
+}
+}
+- Result< (), Box<dyn Error>> 
+- Result < Success, Failure> 
+
+--> Box<dyn Error> :  you can read Box<dyn Error> to mean “any kind of error.”
+
+- Rust uses Smart pointers. Box type is smart pointer in RUST.
+
+- Macros are used in meta-programming which is code typing code.
+
+- References : &
+If you dont want to give ownership to others, give it with ref.
 
 - https://beachape.com/blog/2017/05/24/rust-from-scala/
