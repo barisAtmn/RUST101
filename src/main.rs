@@ -9,6 +9,8 @@ use hello::enums_test::{test_enum, open_file, receives_closure, returns_closure}
 use hello::derive_test::derive_debug_test;
 use hello::closures::*;
 use hello::result_error_handling::*;
+use hello::question_mark::*;
+
 
 const  X : i32= 3;
 
@@ -82,6 +84,15 @@ fn main() {
     println!("{:?}", test_error());
 
     test_owner2();
+
+    println!("{}", match read_username_from_file() {
+        Ok(s) => s,
+        Err(e) => e.to_string(),
+    });
+    println!("{}", match read_username_from_file2() {
+        Ok(s) => s,
+        Err(e) => e.to_string(),
+    });
 }
 
 fn do_stuff(first_element: i32 , second_element: i32) -> i32 {
