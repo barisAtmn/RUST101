@@ -218,7 +218,7 @@ enum Result<T, E> {
 - Result< (), Box<dyn Error>> 
 - Result < Success, Failure> 
 
---> Box<dyn Error> :  you can read Box<dyn Error> to mean “any kind of error.”
+- Box<dyn Error> :  you can read Box<dyn Error> to mean “any kind of error.”
 
 - Rust uses Smart pointers. Box type is smart pointer in RUST.
 
@@ -228,22 +228,22 @@ enum Result<T, E> {
 If you dont want to give ownership to others, give it with ref.
 
 - Stack
-{
+```
 - Fast memory creation and retrivieal // SPEED
 - Fixex size Memory. It is known in compile time.
 - Collections and vectors cant be in stack as their size is changed!!!
     - Strings are collection of u8. They can grow. That is why they are not in Stack!
 - Exception is fixed size array.
 - Data is stored together in memory. That is why it is fast.
--
-}
+```
+
 
 - Heap
-{
+```
 - Memory is recaptured when last owner goes out of scope
 - Slower than stack
 - Can grow!!!
-}
+```
 
 ```
 let stack_i8:i8 = 10;
