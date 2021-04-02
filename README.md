@@ -1,6 +1,7 @@
 ### HELLO RUST ###
 
 - It is system programming language.
+
 ```
 - Systems programming, or system programming, is the activity of programming computer system software.
 The primary distinguishing characteristic of systems programming when compared to application programming is that application 
@@ -24,6 +25,13 @@ savings of time or money.
 - The Rust macro system, while less powerful than Scala’s, is quite useful for keeping your code DRY and 
 importantly, integrates really well with the rest of the language. It is in fact enabled and available out of the box without any additional dependencies/flags.
 - 
+```
+
+- rustc is the compiler for the Rust programming language, provided by the project itself.
+  Compilers take your source code and produce binary code, either as a library or executable.
+```
+$ rustc hello.rs
+$ ./hello
 ```
 
 - cargo new {project_name} *> cargo run *> cargo doc
@@ -218,5 +226,45 @@ enum Result<T, E> {
 
 - References : &
 If you dont want to give ownership to others, give it with ref.
+
+- Stack
+{
+- Fast memory creation and retrivieal // SPEED
+- Fixex size Memory. It is known in compile time.
+- Collections and vectors cant be in stack as their size is changed!!!
+    - Strings are collection of u8. They can grow. That is why they are not in Stack!
+- Exception is fixed size array.
+- Data is stored together in memory. That is why it is fast.
+-
+}
+
+- Heap
+{
+- Memory is recaptured when last owner goes out of scope
+- Slower than stack
+- Can grow!!!
+}
+
+```
+let stack_i8:i8 = 10;
+let heap_i8: Box<i8> = Box:new(10);
+
+---------------------------------- OK!!! // Stack copies are cheap! It creates new memory for stack_i8_2!!!
+let stack_i8_2 = stack_i8;
+println!("{}", stack_i8_2);
+println!("{}", stack_i8);
+---------------------------------- NOT OK!!!
+let heap_i8_2 = heap_i8;
+println!("{}", heap_i8_2);
+println!("{}", heap_i8); // heap_i8 is no longer exist. It gives ownership to heap_i8_2!!!
+---------------------------------- OK!!! // It points same memory. No race condition!!!
+let heap_i8_2 = &heap_i8; // Borrowing
+println!("{}", heap_i8_2);
+println!("{}", heap_i8); 
+---------------------------------- OK!!! // it creates totally different one. They dont point same memory. No race condition!!!
+let heap_i8_2 = heap_i8.clone(); // Clone creates copy of memory! 
+println!("{}", heap_i8_2);
+println!("{}", heap_i8); 
+```
 
 - https://beachape.com/blog/2017/05/24/rust-from-scala/
