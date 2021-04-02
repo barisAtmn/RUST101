@@ -7,6 +7,7 @@ use std::io::Error;
 use log::debug;
 
 #[derive(Debug)]
+#[allow(unused_imports)]
 enum Color {
     Empty,
     Red(String),

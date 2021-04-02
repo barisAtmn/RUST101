@@ -18,6 +18,7 @@ savings of time or money.
 - 
 ```
 - No inheritance for data types (there is a bottom type but it’s used much more sparingly)
+- Rust has Traits - similiar to polymorphism in object oriented world!
 - No universal equality
 - No nulls
 - Traits are basically Haskell typeclasses
@@ -222,6 +223,9 @@ enum Result<T, E> {
 
 - Box<dyn Error> :  you can read Box<dyn Error> to mean “any kind of error.”
 
+- dyn is a prefix of a trait object's type.
+- The dyn keyword is used to highlight that calls to methods on the associated Trait are dynamically dispatched. To use the trait this way, it must be 'object safe'.
+  
 - Rust uses Smart pointers. Box type is smart pointer in RUST.
 
 - There is Dangling pointers in RUST

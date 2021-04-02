@@ -7,21 +7,6 @@ struct Person {
     nation : &'static str
 }
 
-pub fn struct_test1() {
-    let john:Person = Person::new();
-    println!("{}, {}, {}, {}", john.name, john.age, john.nation, john.surname );
-
-    Person::test();
-
-    let baris:Person = Person {
-        name: "baris",
-        surname: "ataman",
-        age: 29,
-        nation: "TR"
-    };
-    println!("{}, {}, {}, {}", baris.name, baris.age, baris.nation, baris.surname );
-}
-
 // constructor with default values. dont use str :)) this is just test.
 // you can use Person instead of Self also
 impl Person {
@@ -34,8 +19,25 @@ impl Person {
         }
     }
 
-    fn test() {
-        println!("{}", Person::new().surname);
+    // same like this in OOP!
+    fn is_younger(&self, age_param:u8) -> bool {
+        self.age < age_param
     }
 
 }
+
+pub fn struct_test1() {
+    let john:Person = Person::new();
+    println!("{}, {}, {}, {}", john.name, john.age, john.nation, john.surname );
+
+    println!("{}", john.is_younger(9));
+
+    let baris:Person = Person {
+        name: "baris",
+        surname: "ataman",
+        age: 29,
+        nation: "TR"
+    };
+    println!("{}, {}, {}, {}", baris.name, baris.age, baris.nation, baris.surname );
+}
+

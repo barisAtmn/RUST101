@@ -2,8 +2,8 @@
 use hello::{hi,create_random};
 use hello::types::{types, condition, loop_test, os_env_ar};
 use hello::ownership::*;
-use hello::references_borrowing::{ref_pass, p_ref_pass};
-use hello::struct_test::struct_test1;
+use hello::references_borrowing::*;
+use hello::struct_test::*;
 use hello::collections_test::{vector_test, hash_map_test};
 use hello::enums_test::{test_enum, open_file, receives_closure, returns_closure};
 use hello::derive_test::derive_debug_test;
@@ -13,6 +13,7 @@ use hello::question_mark::*;
 use hello::lifetime::*;
 use hello::error_handling::*;
 use hello::generic_test::*;
+use hello::traits::callF;
 
 const  X : i32= 3;
 
@@ -99,6 +100,9 @@ fn main() {
     lt();
     callErrors();
     gn();
+
+    callF();
+
 }
 
 fn do_stuff(first_element: i32 , second_element: i32) -> i32 {
