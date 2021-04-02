@@ -1,7 +1,7 @@
 #[warn(unused_imports)]
 use hello::{hi,create_random};
 use hello::types::{types, condition, loop_test, os_env_ar};
-use hello::ownership::{test_owner, test_owner2};
+use hello::ownership::*;
 use hello::references_borrowing::{ref_pass, p_ref_pass};
 use hello::struct_test::struct_test1;
 use hello::collections_test::{vector_test, hash_map_test};
@@ -10,7 +10,9 @@ use hello::derive_test::derive_debug_test;
 use hello::closures::*;
 use hello::result_error_handling::*;
 use hello::question_mark::*;
-
+use hello::lifetime::*;
+use hello::error_handling::*;
+use hello::generic_test::*;
 
 const  X : i32= 3;
 
@@ -93,6 +95,10 @@ fn main() {
         Ok(s) => s,
         Err(e) => e.to_string(),
     });
+
+    lt();
+    callErrors();
+    gn();
 }
 
 fn do_stuff(first_element: i32 , second_element: i32) -> i32 {

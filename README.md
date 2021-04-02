@@ -46,6 +46,8 @@ $ ./hello
 
 - Memory safety is guaranteed in compile time.
 
+- No garbage collector.
+
 - Snake case is suggested
 
 - Function doesn't have to be above of other function using it !!!
@@ -222,6 +224,9 @@ enum Result<T, E> {
 
 - Rust uses Smart pointers. Box type is smart pointer in RUST.
 
+- There is Dangling pointers in RUST
+- Dangling pointers and wild pointers in computer programming are pointers that do not point to a valid object of the appropriate type.
+
 - Macros are used in meta-programming which is code typing code.
 
 - References : &
@@ -266,5 +271,41 @@ let heap_i8_2 = heap_i8.clone(); // Clone creates copy of memory!
 println!("{}", heap_i8_2);
 println!("{}", heap_i8); 
 ```
+### Error Management
+#### Panicking
+- panic! : macro
+- When a panic is invoked, the developer is essentially saying, "program execution cannot continue any further after encountering this error".
+- It is terminal state!
+```
+match file.write_all("Hi Ferris") {
+  Ok(_) => {},
+  Err(e) => panic!("Could not write to file") // If this branch executes, program crashes
+}
+```
 
+#### Bubbling errors
+- we would prefer to have that error be handled by the caller of the function, giving it the power to decide how to proceed.
+```
+fn init() -> Result<(), io::Error> {
+  let mut file = match File::create("ferris.txt") {
+    Ok(f) => f,
+    Err(e) => return Err(e) // returns an error to the caller
+  };
+
+  match file.write_all("Hi Ferris") {
+    Ok(_) => return Ok(()),
+    Err(e) => return Err(e)
+  }
+}
+```
+
+- unwrap returns the Ok variant with its value if the computation succeeds or will panic on error.
+  
+- RUST BACKTRACE=1 cargo run; // to get detailed message 
+
+- To use question mark(?), function should return Result or Option.
+- You cant use ? in main function as it returns ()
+  
+- Generics: No runtime cost!!!
+  
 - https://beachape.com/blog/2017/05/24/rust-from-scala/

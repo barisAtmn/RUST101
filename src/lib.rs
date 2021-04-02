@@ -13,6 +13,8 @@ pub mod lifetime;
 pub mod pointers;
 pub mod macros;
 pub mod question_mark;
+pub mod error_handling;
+pub mod generic_test;
 
 use rand::{thread_rng, Rng};
 
